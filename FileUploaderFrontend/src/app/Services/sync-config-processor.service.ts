@@ -65,10 +65,12 @@ export class SyncConfigProcessorService {
           },
           error => {
             caughtError = error as Error;
+            return caughtError;
           });
       }
       catch (error) {
         caughtError = error as Error;
+        return caughtError;
       }
 
       // START WRITING ENTITIES TO DB
