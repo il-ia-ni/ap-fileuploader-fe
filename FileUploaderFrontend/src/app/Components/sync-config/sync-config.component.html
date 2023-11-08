@@ -1,0 +1,51 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <div class="d-flex flex-column justify-content-center">
+    <h2 class="mt-5 text-center">You are syncing data to table: <b>{{dbTable}}</b></h2>
+    <p class="text-center">Successfully read <b>{{excelValuesTotal}} lines</b> of data with
+      <b>{{getCurrentExcelCols().length}} columns</b> from the Excel sheet!
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <h4 class="mt-3 text-center">Link Excel sheet's columns to the database table and click <b>"Continue"</b></h4>
+  <mat-table [dataSource]="dataSource!" class="mat-elevation-z8">
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <ng-container matColumnDef="dbCol" class="sms-material-col">
+      <mat-header-cell *matHeaderCellDef> Database Column </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.dbColName }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dbType" class="sms-material-col">
+      <mat-header-cell *matHeaderCellDef> Allowed Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.dbColType }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="excelCol" class="sms-material-col">
+      <mat-header-cell *matHeaderCellDef> Excel Column </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-form-field>
+          <mat-label>Excel column</mat-label>
+          <mat-select [(ngModel)]="element.excelCol">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let key of excelColumnsKeysSorted()" [value]="createRecord(key, excelColumns![key])">
+              {{excelColumns![key]}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="defaultValue" class="sms-material-col">
+      <mat-header-cell *matHeaderCellDef> Default value if empty? </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-form-field>
+          <input matInput [(ngModel)]="element.defaultValue" (ngModelChange)="validateDefaultValue(element)">
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>
