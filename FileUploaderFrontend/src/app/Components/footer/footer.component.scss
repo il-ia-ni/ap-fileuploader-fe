@@ -1,0 +1,21 @@
+@import '../../../styles.scss';
+
+.sms-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+  padding: 20px 0;
+  background-color: $sms-dark-grey-color;
+}
+
+.sms-footer-row {
+  min-height: 100%;
+}
+
+.sms-footer-col {
+  min-height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

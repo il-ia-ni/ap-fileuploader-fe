@@ -1,0 +1,23 @@
+<!-- For icons see https://icons.getbootstrap.com/ -->
+<footer class="sms-footer sms-border footer mt-5 py-3">
+  <div class="container">
+    <div class="sms-footer-row row">
+      <div class="sms-footer-col">
+        <!-- "Restart process" bttn area -->
+        <button class="sms-action-btn sms-reset-btn btn btn-danger" (click)="restartProcess()" *ngIf="isRestartVisible()"
+          [disabled]="isRestartDisabled()">
+          <span class="bi bi-arrow-counterclockwise" style="margin-right: 5px;"></span>
+          Restart process</button>
+        <!-- "Confirm" button area -->
+        <button class="sms-action-btn sms-confirm-btn btn btn-success" (click)="onConfirmClick()" *ngIf="isConfirmVisible()">
+          <span class="bi bi-check" style="margin-right: 5px;"></span>
+          Confirm
+        </button>
+        <button class="sms-action-btn sms-submit-btn btn btn-success" (click)="onSubmitClick()" *ngIf="isSubmitVisible()">
+          <span class="bi bi-database-fill-up" style="margin-right: 5px;"></span>
+          Submit data
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
