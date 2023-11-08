@@ -1,0 +1,18 @@
+@import '../../../styles.scss';
+
+.sms-box {
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sms-submit:enabled {
+  background-color: $sms-blue-color;
+  color: $sms-white-color;
+}
+
+.sms-submit:disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
