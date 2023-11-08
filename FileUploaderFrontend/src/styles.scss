@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons.scss';
+
+$sms-background-grey-color: rgb(243, 245, 249);
+$sms-dark-grey-color: rgb(217, 219, 223);
+$sms-blue-color: rgb(50, 116, 182);
+$sms-red-color: rgb(207, 44, 41);
+$sms-black-color: rgb(48, 49, 63);
+$sms-white-color: rgb(255, 255, 255);
+
+mat-header-row {  // styles for Material Tables
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-weight: bold;
+  background-color: $sms-dark-grey-color;
+}
+
+mat-header-cell {  // styles for Material Tables
+  justify-content: center;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
+}
+
+b {
+  color: $sms-black-color;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.sms-action-btn {
+  min-height: 40px;
+  min-width: 100px;
+}
+
+.sms-body-logo img {
+  max-width: 70%;
+  margin-top: 5%;
+}
+
+.sms-main-container {
+  height: 100%;
+  background-color: $sms-background-grey-color;
+}
+
+.sms-container {
+  height: 90%;
+  margin-bottom: 4rem;
+  padding-bottom: 15px;
+  overflow: auto;
+}
+
+.sms-component-box {
+  height: 100%
+}
+
+.sms-form {
+  background-color: $sms-dark-grey-color;
+  padding: 20px;
+  min-height: 10rem;
+  min-width: 30rem;
+  max-width: 50rem;
+}
+
+.sms-form-group {
+  margin-top: 3%;
+}
+
+.sms-border {
+  border: 1px solid $sms-blue-color;
+}
+
+.main-header {
+  font-size: 6rem;
+  font-weight: 700;
+  color: $sms-black-color;
+}
+
+.header-link {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: $sms-black-color;
+}
+
+.body-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: $sms-black-color;
+}
