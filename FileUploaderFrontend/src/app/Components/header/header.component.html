@@ -1,0 +1,25 @@
+<!-- For icons see https://icons.getbootstrap.com/ -->
+<nav class="sms-header sms-border navbar d-flex justify-content-between align-items-center">
+  <div class="d-flex">
+    <a class="navbar-brand" href="start">
+      <img [src]="smsLogo" alt="SMS group GmbH Logo" class="sms-logo"/>
+    </a>
+    <a class="nav-link sms-title" href="start">File Uploader</a>
+  </div>
+  <div class="user-info d-flex">
+    <ng-container *ngIf="isAuthenticated; else loginLink">
+      <!-- Wenn der Benutzer authentifiziert ist -->
+      <div class="d-flex align-items-center">
+        <span class="user-info">You are logged in as: <b>{{ userName }}</b></span>
+        <a (click)="onLogoutClick()" href="" class="btn btn-danger ml-2" style="width: 100px;">
+          <span class="bi bi-door-closed" style="margin-right: 5px;"></span>Logout</a>
+      </div>
+    </ng-container>
+    <ng-template #loginLink>
+      <!-- Wenn der Benutzer nicht authentifiziert ist -->
+      <a [routerLink]="['/login']" class="btn btn-primary" style="width: 100px;">
+        <span class="bi bi-door-open" style="margin-right: 5px;"></span>Login
+      </a>
+    </ng-template>
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+.sms-header {
+  background-color: $sms-dark-grey-color;
+}
+
+.user-info {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sms-logo {
+  width: 200px;
+  height: auto;
+  margin-left: 20px;
+  padding-top: 3px;
+}
+
+.sms-title {
+  color: $sms-black-color;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-info {
+  /* Stil für Benutzerinformationen und Logout-Link */
+}
