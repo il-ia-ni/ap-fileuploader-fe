@@ -74,8 +74,8 @@ export class FooterComponent {
         if (typeof (res) == 'number') {
           entitiesUploaded = res;
           const msg = "Uploaded successfully " + entitiesUploaded + " entities to the db!";
-          this._snackBar.open(msg, "Ok", { duration: 5000 });
           this.router.navigate(['/synccomplete']);
+          this._snackBar.open(msg, "Ok", { duration: 5000 });
         }
         else if (res instanceof HttpErrorResponse) {
           const errorMssg = `Server responded with an error: ${res.status} ('${res.name}'): ${JSON.stringify(res.error)}`;

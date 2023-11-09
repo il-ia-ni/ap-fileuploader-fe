@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
     this.excelService.clearExcelData();
     this.syncConfigService.clearProcessedData();
-    this._snackBar.open("You were successfully logged out", "Ok", { duration: 3000 });
     this.router.navigate(['/login']);
+    this._snackBar.open("You were successfully logged out", "Ok", { duration: 3000 });
   }
 }

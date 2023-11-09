@@ -56,7 +56,7 @@ export class SyncConfigProcessorService {
     if (this.processedEntitiesSubject.value.length > 0) {
       let entitiesWrittenCount = 0;
 
-      // DROP ALL DATA FROM DB
+      // DROP ALL DATA FROM DB TABLE
       try {
         let tableDro$ = this.metadataService.deleteAllMetadata().subscribe(
           response => {
@@ -76,17 +76,15 @@ export class SyncConfigProcessorService {
       // START WRITING ENTITIES TO DB
       for (const md of this.processedEntitiesSubject.value) {
         try {
-          const response = await this.metadataService.createMetadata(md).toPromise();
+          await this.metadataService.createMetadata(md).toPromise();
           entitiesWrittenCount++;
-          // console.log("Successfully written entity to the database: ");
-          // console.log(response);
         }
         catch (error: any) {
           caughtError = error as Error;
           break;
         }
-        return entitiesWrittenCount;  // IF SUCCESS
       }
+      return entitiesWrittenCount;  // IF SUCCESS
     }
     return caughtError;  // OTHERWISE
   }
